@@ -1,0 +1,105 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+        font-size: inherit;
+font-style: normal;
+}.flaticon-agenda35:before {
+	content: "\e000";
+}
+.flaticon-analytics2:before {
+	content: "\e001";
+}
+.flaticon-ascendant6:before {
+	content: "\e002";
+}
+.flaticon-badge2:before {
+	content: "\e003";
+}
+.flaticon-business134:before {
+	content: "\e004";
+}
+.flaticon-checkmark17:before {
+	content: "\e005";
+}
+.flaticon-coffee26:before {
+	content: "\e006";
+}
+.flaticon-comments16:before {
+	content: "\e007";
+}
+.flaticon-covered16:before {
+	content: "\e008";
+}
+.flaticon-drink110:before {
+	content: "\e009";
+}
+.flaticon-emoticon11:before {
+	content: "\e00a";
+}
+.flaticon-emoticon148:before {
+	content: "\e00b";
+}
+.flaticon-emoticon82:before {
+	content: "\e00c";
+}
+.flaticon-five19:before {
+	content: "\e00d";
+}
+.flaticon-good4:before {
+	content: "\e00e";
+}
+.flaticon-hot51:before {
+	content: "\e00f";
+}
+.flaticon-house266:before {
+	content: "\e010";
+}
+.flaticon-house9:before {
+	content: "\e011";
+}
+.flaticon-lightbulb14:before {
+	content: "\e012";
+}
+.flaticon-money57:before {
+	content: "\e013";
+}
+.flaticon-pie30:before {
+	content: "\e014";
+}
+.flaticon-sad70:before {
+	content: "\e015";
+}
+.flaticon-smiley10:before {
+	content: "\e016";
+}
+.flaticon-smiley12:before {
+	content: "\e017";
+}
+.flaticon-smiley3:before {
+	content: "\e018";
+}
+.flaticon-speechballoons1:before {
+	content: "\e019";
+}
+.flaticon-statistics:before {
+	content: "\e01a";
+}
+.flaticon-sweet9:before {
+	content: "\e01b";
+}
+.flaticon-tea24:before {
+	content: "\e01c";
+}
+.flaticon-write57:before {
+	content: "\e01d";
+}
