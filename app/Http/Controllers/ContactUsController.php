@@ -31,7 +31,7 @@ class ContactUsController extends Controller
             'email' => $request->email,
             'phone_no' => $request->phone_no
         ]);
-        $request->session()->flash('success_message','Thank you for submitting your details with us. We\'ll contact you soon.');
+        $request->session()->flash('success_message','Thank you for sharing your details with us. We\'ll contact you soon.');
         return redirect('/#contact');
     }
 }
