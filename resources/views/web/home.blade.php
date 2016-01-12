@@ -7,7 +7,7 @@
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="{{URL::asset('web/img/logo-wh.png')}}"></a></div>
+                <div class="logo"><a href="{{URL::to('/')}}"><img src="{{URL::asset('web/img/logo-wh.png')}}"></a></div>
                 <div class="header-nav">
                     <nav>
 
