@@ -18,7 +18,7 @@
                             @endif
                         </div>
                         <div class="form-input-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <i class="fa fa-phone"></i><input type="password" class="" placeholder="Password" required>
+                            <i class="fa fa-phone"></i><input type="password" name="password" class="" placeholder="Password" required>
                             @if ($errors->has('password'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
