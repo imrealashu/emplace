@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <h2> Login To Your Dashboard </h2>
                     <p> If you are not registered then please <a href="{{URL::to('/#contact')}}"> Contact Us </a></p>
-                    <form class="signup-form" action="#" method="POST" role="form" action="{{ url('/login') }}">
+                    <form class="signup-form" method="POST" role="form" action="{{ url('/login') }}">
                         {!! csrf_field() !!}
                         <div class="form-input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <i class="fa fa-envelope"></i><input type="email" class="" placeholder="Your Email id"  name="email" value="{{ old('email') }}" />
@@ -33,12 +33,6 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-
-                            {{--<div class="col-md-6 col-md-offset-4">--}}
-                                {{--<a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>--}}
-                            {{--</div>--}}
                         </div>
                         <button type="submit" class="btn-fill sign-up-btn">LOGIN</button>
                     </form>

@@ -12,8 +12,8 @@
                     <nav>
 
                         <ul class="member-actions">
-                            <li><a href="#download" class="login">Contact US</a></li>
-                            <li><a href="login.html" class="btn-white btn-small">Login</a></li>
+                            <li><a href="{{URL::to('/#contact')}}" class="login">Contact US</a></li>
+                            <li><a href="{{URL::to('/login')}}" class="btn-white btn-small">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -153,15 +153,18 @@
             <div class="col-md-6 col-md-offset-3">
                 <h2>Get Started by contacting us</h2>
                 <p>You can simply request a callback and we will respond in next 24 hr</p>
-                <form class="signup-form" action="#" method="POST" role="form">
+                <form class="signup-form" method="POST" role="form" action="{{URL::to('/contact-us')}}">
+                    {!! csrf_field() !!}
                     <div class="form-input-group">
-                        <i class="fa fa-envelope"></i><input type="text" class="" placeholder="Your Email id" required>
+                        <i class="fa fa-envelope"></i><input type="email" placeholder="Your Email id" required>
                     </div>
+
                     <div class="form-input-group">
                         <i class="fa fa-phone"></i><input type="text" class="" placeholder="Your Phone Number" required>
                     </div>
                     <button type="submit" class="btn-fill sign-up-btn">REQUEST CALLBACK</button>
                 </form>
+
             </div>
         </div>
     </div>
