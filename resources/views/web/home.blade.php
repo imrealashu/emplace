@@ -156,15 +156,21 @@
                 <form class="signup-form" method="POST" role="form" action="{{URL::to('/contact-us')}}">
                     {!! csrf_field() !!}
                     <div class="form-input-group">
-                        <i class="fa fa-envelope"></i><input type="email" placeholder="Your Email id" required>
+                        <i class="fa fa-envelope"></i><input type="email" name="email" placeholder="Your Email id" />
                     </div>
-
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                     <div class="form-input-group">
-                        <i class="fa fa-phone"></i><input type="text" class="" placeholder="Your Phone Number" required>
+                        <i class="fa fa-phone"></i><input type="text" name="phone_no" placeholder="Your Phone Number" />
                     </div>
                     <button type="submit" class="btn-fill sign-up-btn">REQUEST CALLBACK</button>
                 </form>
-
+                @if(Session::has('success_message'))
+                    <p style="color: green">{{Session::get('success_message')}}</p>
+                @endif
             </div>
         </div>
     </div>

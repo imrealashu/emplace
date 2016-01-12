@@ -11,22 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('web.home');
-//    $auth = auth()->guard('admin');
-//
-//    $credentials = [
-//        'email' =>  'imrealashu@gmail.com',
-//        'password' =>  'ashish',
-//    ];
-//
-//    if ($auth->attempt($credentials)) {
-//        return 'Success';
-//    } else {
-//        return 'Not Success';
-//    return Auth::user();
-//    }
-    });
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -63,6 +47,7 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
+    Route::get('/','ContactUsController@index');
     Route::get('/home', 'HomeController@index');
     Route::post('/contact-us','ContactUsController@create');
 });

@@ -7,21 +7,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ContactUsController extends Controller
 {
     public function index(){
-
+        return view('web.home');
     }
     public function create(Request $request){
 
-        $validator = Validator::make($request->all(), [
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
             'email' => 'required|max:55',
         ]);
 
         if ($validator->fails()) {
-            return redirect('/')
+            return redirect('/#contact')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -30,7 +31,7 @@ class ContactUsController extends Controller
             'email' => $request->email,
             'phone_no' => $request->phone_no
         ]);
-        $request->session()->flash('success_message','Successfully Submitted');
-        return redirect('/contact-us#contact');
+        $request->session()->flash('success_message','Thank you for submitting your details with us. We\'ll contact you soon.');
+        return redirect('/#contact');
     }
 }
