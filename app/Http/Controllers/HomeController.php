@@ -2,38 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
-use App\Http\Requests;
-use App\Models\Company;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function index(){
+        if(Auth::user())
+            return redirect('/dashboard');
+        return view('web.home');
     }
+    public function create(Request $request){
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $client_data = Client::find(Auth::user()->id);
-        $x = $client_data->company()->get();
-        $company_data = $x{0};
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'email' => 'required|max:55',
+        ]);
 
-        $visit_data = Company::find($company_data->id)->feedbacks();
+        if ($validator->fails()) {
+            return redirect('/#contact')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-
-        return view('client.dashboard',compact('client_data','company_data','visit_data'));
+        DB::table('contact_us')->insert([
+            'email' => $request->email,
+            'phone_no' => $request->phone_no
+        ]);
+        $request->session()->flash('success_message','Thank you for sharing your details with us. We\'ll contact you soon.');
+        return redirect('/#contact');
     }
 }

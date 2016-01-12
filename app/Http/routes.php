@@ -47,7 +47,7 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
-    Route::get('/','ContactUsController@index');
-    Route::get('/home', 'HomeController@index');
-    Route::post('/contact-us','ContactUsController@create');
+    Route::get('/','HomeController@index');
+    Route::get('/dashboard', 'DashboardController@index');
+    Route::post('/contact-us','HomeController@create');
 });
