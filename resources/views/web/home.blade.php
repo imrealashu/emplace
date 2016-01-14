@@ -144,7 +144,7 @@
 
         </div>
     </div>
-    <div class="responsive-feature-img"><img src="{{URL::asset('web/img/marketing.png')}}" alt="responsive devices"></div>
+    <div class="responsive-feature-img"><img src="{{URL::asset('web/img/marketing.jpg')}}" alt="responsive devices"></div>
 </section>
 
 <section class="sign-up section-padding text-center" id="contact">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use Acme\Transformers\ClientTransformer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use JWTAuth;
@@ -9,6 +10,11 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends ApiController
 {
+    protected $clientTransformer;
+
+    public function __construct(ClientTransformer $clientTransformer){
+        $this->clientTransformer = $clientTransformer;
+    }
     public function authenticate(Request $request)
     {
         // grab credentials from the request
@@ -49,7 +55,10 @@ class AuthController extends ApiController
         }
 
         // the token is valid and we have found the user via the sub claim
-        return response()->json(['data'=>['user'=>$user]]);
+        return $this->respond([
+            'data' => $this->clientTransformer->transformLong($user->toArray())
+        ]);
+//        return response()->json(['data'=>$this->clientTransformer->transform($user)]);
     }
 
 }

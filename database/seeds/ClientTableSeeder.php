@@ -15,7 +15,7 @@ class ClientTableSeeder extends Seeder
             'name' => 'Sardar Singh',
             'email' => 'imrealashu@gmail.com',
             'password' => bcrypt('ashish'),
-            'company_id'=>1,
+            'branch_id'=> 1,
         ]);
     }
 }

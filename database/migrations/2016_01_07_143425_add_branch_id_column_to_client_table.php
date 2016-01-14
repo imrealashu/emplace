@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCompanyIdColumnToClientTable extends Migration
+class AddBranchIdColumnToClientTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AddCompanyIdColumnToClientTable extends Migration
     public function up()
     {
         Schema::table('clients', function(Blueprint $table){
-            $table->integer('company_id')->unsigned()->after('password');
+            $table->integer('branch_id')->unsigned()->after('password');
 
-            $table->foreign('company_id')
+            $table->foreign('branch_id')
                 ->references('id')
-                ->on('companies')
+                ->on('branches')
                 ->onDelete('cascade');
 
         });
@@ -31,8 +31,8 @@ class AddCompanyIdColumnToClientTable extends Migration
     public function down()
     {
         Schema::table('clients',function(Blueprint $table){
-            $table->dropForeign('clients_company_id_foreign');
-            $table->dropColumn('company_id');
+            $table->dropForeign('clients_branch_id_foreign');
+            $table->dropColumn('branch_id');
         });
     }
 }

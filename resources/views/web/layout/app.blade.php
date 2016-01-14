@@ -27,6 +27,7 @@
 <body id="top">
 @yield('content')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{{URL::asset('web/js/emplace.js')}}"></script>
     <script>window.jQuery || document.write('<script src="{{URL::asset('web/js/vendor/jquery-1.11.2.min.js')}}}"><\/script>')</script>
     <script src="{{URL::asset('web/bower_components/retina.js/dist/retina.js')}}"></script>
     <script src="{{URL::asset('web/js/jquery.fancybox.pack.js')}}"></script>

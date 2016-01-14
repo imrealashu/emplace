@@ -18,7 +18,6 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
     }
 
     /**
@@ -28,6 +27,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        return Auth::user();
         $client_data = Client::find(Auth::user()->id);
         $x = $client_data->company()->get();
         $company_data = $x{0};
