@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7defc208bd6c857a07378e9a0ea7b469",
-    "content-hash": "675ef4278cbc0a2bdb77cac310964868",
+    "hash": "03b2a93162e90918623133f9701dcbde",
+    "content-hash": "f9e9af86270318f711ce21a0da417cec",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -160,59 +160,6 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
-        },
-        {
-            "name": "imrealashu/laravelrest",
-            "version": "v0.1.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/imrealashu/laravelrest.git",
-                "reference": "ad33acd56eb530a7cef7fcd8ff1040d27493cfec"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/imrealashu/laravelrest/zipball/ad33acd56eb530a7cef7fcd8ff1040d27493cfec",
-                "reference": "ad33acd56eb530a7cef7fcd8ff1040d27493cfec",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.1",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*",
-                "scrutinizer/ocular": "~1.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "imrealashu\\laravelrest\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ashish Singh",
-                    "email": "imrealashu@gmail.com",
-                    "homepage": "https://github.com/imrealashu",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Simple Package to create Laravel REST API",
-            "homepage": "https://github.com/imrealashu/laravelrest",
-            "keywords": [
-                "Laravel Rest",
-                "laravel"
-            ],
-            "time": "2015-12-07 16:28:14"
         },
         {
             "name": "jakub-onderka/php-console-color",

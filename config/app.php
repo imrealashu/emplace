@@ -160,7 +160,6 @@ return [
          * Custom Service Providers
          */
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        imrealashu\laravelrest\RestServiceProvider::class
 
     ],
 
