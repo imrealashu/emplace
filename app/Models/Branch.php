@@ -10,4 +10,7 @@ class Branch extends Model
     public function company(){
         return $this->belongsTo('\App\Models\Company');
     }
+    public function feedback(){
+        return $this->hasMany('\App\Models\RestaurantFeedback');
+    }
 }

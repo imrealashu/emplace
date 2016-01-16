@@ -153,7 +153,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <h2>Get Started by contacting us</h2>
                 <p>You can simply request a callback and we will respond in next 24 hr</p>
-                <form class="signup-form" method="POST" role="form" action="{{URL::to('/contact-us')}}">
+                <form id="contact-us" class="signup-form" method="POST" role="form" action="{{URL::to('/contact-us')}}">
                     {!! csrf_field() !!}
                     <div class="form-input-group">
                         <i class="fa fa-envelope"></i><input type="email" name="email" placeholder="Your Email id" />

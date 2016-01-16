@@ -1,12 +1,16 @@
-var emplace = (function(){
+var contactUs = (function(){
 
-    var privateMethod = function(){
-        //private method
-    }
+    var $el = $('#contact-us');
+    var action = $el.attr('action');
+
+    function sendRequest(){
+        alert('ashish');
+    };
     return {
-        publicMethod: function(){
-
-        }()
-    }
+        sendRequest: sendRequest
+    };
 
 })();
+(function(){
+   contactUs.sendRequest();
+});
