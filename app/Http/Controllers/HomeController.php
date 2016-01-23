@@ -25,6 +25,8 @@ class HomeController extends Controller
         ]);
 
         if ($validator->fails()) {
+            if($request->ajax())
+                return 'Something went Wrong';
             return redirect('/#contact')
                 ->withErrors($validator)
                 ->withInput();
@@ -34,6 +36,8 @@ class HomeController extends Controller
             'email' => $request->email,
             'phone_no' => $request->phone_no
         ]);
+        if($request->ajax())
+            return 'Thank you for sharing your details with us. We\'ll contact you soon.';
         $request->session()->flash('success_message','Thank you for sharing your details with us. We\'ll contact you soon.');
         return redirect('/#contact');
     }

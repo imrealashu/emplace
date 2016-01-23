@@ -1,0 +1,12 @@
+.ajax-loader{
+    opacity: .5;
+    background-image: url('../382.GIF');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+div.ajax-loader{
+    z-index: 9999;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

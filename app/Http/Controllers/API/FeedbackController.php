@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
 class FeedbackController extends ApiController
@@ -56,25 +57,26 @@ class FeedbackController extends ApiController
      * @return \Illuminate\Http\JsonResponse
      */
     public function createFeedbackForUnregisteredUsers(Request $request){
-        $data = $request[0];
+
+
         $user_id = DB::table('users')->insertGetId([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['phone_no']),
-            'country_id' => $data['country_id'],
-            'phone' => $data['phone_no'],
-            'dob' => $data['dob'],
-            'anniversary' => $data['anniversary'],
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->phone_no),
+            'country_id' => $request->country_id,
+            'phone' => $request->phone_no,
+            'dob' => $request->dob,
+            'anniversary' => $request->anniversary,
         ]);
         DB::table('restaurant_feedbacks')->insert([
-            'food' => $data['food'],
-            'ambiance' => $data['service'],
-            'service' => $data['service'],
-            'no_of_people' => $data['no_of_people'],
-            'bill_amount' => $data['bill_amount'],
-            'comment' => $data['comment'],
-            'user_id' => $user_id,
-            'branch_id' => $data['branch_id']
+            'food' => (int)$request->food,
+            'ambiance' => (int)$request->service,
+            'service' => (int)$request->ambiance,
+            'no_of_people' => (int)$request->no_of_people,
+            'bill_amount' => (int)$request->bill_amount,
+            'comment' => $request->comment,
+            'user_id' => (int)$user_id,
+            'branch_id' => (int)$request->branch_id
         ]);
         return response()->json(['data'=>['status'=> 'successfully added']],201);
     }
@@ -84,16 +86,16 @@ class FeedbackController extends ApiController
      * @return \Illuminate\Http\JsonResponse
      */
     public function createFeedbackForRegisteredUsers(Request $request){
-        $data = $request[0];
+
         DB::table('restaurant_feedbacks')->insert([
-            'food' => $data['food'],
-            'ambiance' => $data['service'],
-            'service' => $data['service'],
-            'no_of_people' => $data['no_of_people'],
-            'bill_amount' => $data['bill_amount'],
-            'comment' => $data['comment'],
-            'user_id' => $data['user_id'],
-            'branch_id' => $data['branch_id']
+            'food' => (int)$request->food,
+            'ambiance' => (int)$request->service,
+            'service' => (int)$request->ambiance,
+            'no_of_people' => (int)$request->no_of_people,
+            'bill_amount' => (int)$request->bill_amount,
+            'comment' => $request->comment,
+            'user_id' => (int)$request->user_id,
+            'branch_id' => (int)$request->branch_id
         ]);
         return response()->json(['data'=>['status'=> 'successfully added']],201);
     }
@@ -105,7 +107,7 @@ class FeedbackController extends ApiController
     public function userData($user){
         return response()->json([
             'data'=>$user->get()
-        ]);
+        ],200);
     }
 
     /**

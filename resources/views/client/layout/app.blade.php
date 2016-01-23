@@ -19,11 +19,13 @@
 <body>
 @yield('content')
 <!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
+<script type="text/javascript" src="{{URL::asset('client/js/jquery.js')}}"></script>
 <![endif]-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
-<script src="js/jquery.stickyheader.js"></script>
+<script type="text/javascript" src="{{URL::asset('client/js/jquery-throttle.js')}}"></script>
+{{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>--}}
+{{--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>--}}
+<script src="{{URL::asset('client/js/jquery.stickyheader.js')}}"></script>
 
 <script>
     window.randomize = function() {

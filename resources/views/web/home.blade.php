@@ -153,7 +153,8 @@
             <div class="col-md-6 col-md-offset-3">
                 <h2>Get Started by contacting us</h2>
                 <p>You can simply request a callback and we will respond in next 24 hr</p>
-                <form id="contact-us" class="signup-form" method="POST" role="form" action="{{URL::to('/contact-us')}}">
+                <form id="contact-us" class="signup-form" method="POST" role="form" action="{{URL::to('/contact-us')}}" onsubmit="contactUs.sendRequest(event)">
+                    {{--<div class="ajax-loader">--}}
                     {!! csrf_field() !!}
                     <div class="form-input-group">
                         <i class="fa fa-envelope"></i><input type="email" name="email" placeholder="Your Email id" />
@@ -166,8 +167,10 @@
                     <div class="form-input-group">
                         <i class="fa fa-phone"></i><input type="text" name="phone_no" placeholder="Your Phone Number" />
                     </div>
-                    <button type="submit" class="btn-fill sign-up-btn">REQUEST CALLBACK</button>
+                    <button type="submit"  class="btn-fill sign-up-btn">REQUEST CALLBACK</button>
+                    {{--</div>--}}
                 </form>
+                <p></p>
                 @if(Session::has('success_message'))
                     <p style="color: green">{{Session::get('success_message')}}</p>
                 @endif

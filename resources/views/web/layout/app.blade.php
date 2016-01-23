@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="{{URL::asset('web/css/queries.css')}}">
     <link rel="stylesheet" href="{{URL::asset('web/css/etline-font.css')}}">
     <link rel="stylesheet" href="{{URL::asset('web/bower_components/animate.css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('web/css/emplace.css')}}">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="{{URL::asset('web/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
 </head>
 <body id="top">
 @yield('content')
-    <script src="{{URL::asset('web/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     {{--<script>window.jQuery || document.write('<script src="{{URL::asset('web/js/vendor/jquery-1.11.2.min.js')}}}"><\/script>')</script>--}}
-    <script src="{{URL::asset('web/js/emplace.js')}}"></script>
     <script src="{{URL::asset('web/bower_components/retina.js/dist/retina.js')}}"></script>
     <script src="{{URL::asset('web/js/jquery.fancybox.pack.js')}}"></script>
     <script src="{{URL::asset('web/js/vendor/bootstrap.min.js')}}"></script>
@@ -36,4 +36,5 @@
     <script src="{{URL::asset('web/js/jquery.flexslider-min.js')}}"></script>
     <script src="{{URL::asset('web/bower_components/classie/classie.js')}}"></script>
     <script src="{{URL::asset('web/bower_components/jquery-waypoints/lib/jquery.waypoints.min.js')}}"></script>
+    <script src="{{URL::asset('web/js/emplace.js')}}"></script>
 </body>
