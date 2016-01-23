@@ -43,7 +43,7 @@ class FeedbackController extends ApiController
      * @return \Illuminate\Http\JsonResponse
      */
     public function createFeedback(Request $request){
-        if($request[0]['user_id'] == 0){
+        if($request->user_id == 0){
             return $this->createFeedbackForUnregisteredUsers($request);
         }
         return $this->createFeedbackForRegisteredUsers($request);
@@ -75,7 +75,7 @@ class FeedbackController extends ApiController
             'no_of_people' => (int)$request->no_of_people,
             'bill_amount' => (int)$request->bill_amount,
             'comment' => $request->comment,
-            'user_id' => (int)$user_id,
+            'user_id' => $user_id,
             'branch_id' => (int)$request->branch_id
         ]);
         return response()->json(['data'=>['status'=> 'successfully added']],201);

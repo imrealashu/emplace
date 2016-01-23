@@ -34,7 +34,7 @@
                                 <div class="fill fill-blue fix"></div>
                             </div>
                         </div>
-                        <div class="inset"><span class='big'>{{$visit_data->count()}}</span></div>
+                        <div class="inset"><span class='big'>{{$total_visit}}</span></div>
                     </div>
                     <div class="visit text-center"> Visits </div>
                 </div>
@@ -49,7 +49,7 @@
                                 <div class="fill fill-green fix"></div>
                             </div>
                         </div>
-                        <div class="inset"><span class='big'>{{$visit_data->groupBy('user_id')->count()}}</span></div>
+                        <div class="inset"><span class='big'>{{$returning_user}}</span></div>
                     </div>
                     <div class="visit text-center"> Repeating Customer </div>
                 </div>
@@ -68,7 +68,7 @@
                                     <div class="fill fil-red fix"></div>
                                 </div>
                             </div>
-                            <div class="inset"><span class='big'>3</span> / 5</div>
+                            <div class="inset"><span class='big'>{{printf('%.1f',$average_rating->food/10)}}</span> / 10</div>
                         </div>
                         <div class="visit text-center"> Food </div>
                     </div>
@@ -83,7 +83,7 @@
                                     <div class="fill fill-blue fix"></div>
                                 </div>
                             </div>
-                            <div class="inset"><span class='big'>4</span> / 5</div>
+                            <div class="inset"><span class='big'>{{printf('%.1f',$average_rating->service/10)}}</span> / 10</div>
                         </div>
                         <div class="visit text-center"> Service </div>
                     </div>
@@ -98,7 +98,7 @@
                                     <div class="fill fill-green fix"></div>
                                 </div>
                             </div>
-                            <div class="inset"><span class='big'>4.6</span> / 5</div>
+                            <div class="inset"><span class='big'>{{printf('%.1f',$average_rating->ambiance/10)}}</span> / 10</div>
                         </div>
                         <div class="visit text-center"> Ambience </div>
                     </div>
@@ -130,9 +130,10 @@
                                         <div class="fill fill-blue fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('food','=',4)->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$awesome_food}}</span></div>
                             </div>
                         </td>
+
                         <td>
                             <div class="radial-progress-small" data-score="1.8">
                                 <div class="circle">
@@ -144,7 +145,7 @@
                                         <div class="fill fill-green fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('food',3)->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$good_food}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -158,7 +159,7 @@
                                         <div class="fill fill-yellow fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('food',2)->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$average_food}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -172,7 +173,7 @@
                                         <div class="fill fill-red fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('food',1)->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$bad_food}}</span></div>
                             </div>
                         </td>
 
@@ -193,7 +194,7 @@
                                         <div class="fill fill-blue fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('service',4)->groupBy('service')->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$awesome_service}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -207,7 +208,7 @@
                                         <div class="fill fill-green fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('service',3)->groupBy('service')->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$good_service}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -221,7 +222,7 @@
                                         <div class="fill fill-yellow fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('service',2)->groupBy('service')->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$average_service}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -235,7 +236,7 @@
                                         <div class="fill fill-red fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>{{$visit_data->where('service',1)->groupBy('service')->count()}}</span></div>
+                                <div class="inset"><span class='big'>{{$bad_service}}</span></div>
                             </div>
                         </td>
                     </tr>
@@ -255,7 +256,7 @@
                                         <div class="fill fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>54</span></div>
+                                <div class="inset"><span class='big'>{{$awesome_ambiance}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -269,7 +270,7 @@
                                         <div class="fill fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>54</span></div>
+                                <div class="inset"><span class='big'>{{$good_ambiance}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -283,7 +284,7 @@
                                         <div class="fill fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>54</span></div>
+                                <div class="inset"><span class='big'>{{$good_ambiance}}</span></div>
                             </div>
                         </td>
                         <td>
@@ -297,7 +298,7 @@
                                         <div class="fill fix"></div>
                                     </div>
                                 </div>
-                                <div class="inset"><span class='big'>54</span></div>
+                                <div class="inset"><span class='big'>{{$bad_ambiance}}</span></div>
                             </div>
                         </td>
                     </tr>
