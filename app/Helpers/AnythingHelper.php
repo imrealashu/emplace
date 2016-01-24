@@ -23,3 +23,20 @@ function data_fill_dashboard(array $array, $value){
             break;
     }
 }
+function feedback_smiley($value)
+{
+    switch ($value) {
+        case $value == 100:
+            return 'flaticon-smiley10';
+            break;
+        case $value == 75:
+            return 'flaticon-smiley12';
+            break;
+        case $value == 50:
+            return 'flaticon-emoticon11';
+            break;
+        default:
+            return 'flaticon-sad70';
+            break;
+    }
+}

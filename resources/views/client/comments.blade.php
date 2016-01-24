@@ -4,34 +4,30 @@
     @include('client.layout.sidebar')
     <div class="col-md-10 col-md-offset-2">
         <div class="container">
-
             <div class="component">
-                <h2>Customer Details</h2>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>No. of Visits</th>
-                        <th>Total Spent</th>
-                        <th> Send </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($users as $user)
-                        <tr>
-                            <td class="user-name">{{$user['name']}}</td><td class="user-email">{{$user['email']}}</td>
-                            <td class="user-mobile">{{$user['phone']}}</td><td class="user-visit">{{$user['total_visit']}}</td>
-                            <td class="total-spent">{{$user['total_spent']}}</td>
-                            <td class="send"><button class="btn btn-small btn-send">EMAIL</button><button class="btn btn-small btn-send">SMS</button></td>
-                        </tr>
+                <h2>Customer Comments</h2>
+                <div class="row margintop20 no-padding">
+                    @foreach($comments as $comment)
+                    <div class="col-md-4 user-comment no-padding">
+                        <div class="head-feedback">
+                            <div class="col-md-4 no-padding text-center">
+                                <i class="{{feedback_smiley($comment->food)}}"></i> <h5> Food </h5>
+                            </div>
+                            <div class="col-md-4 no-padding text-center">
+                                <i class="{{feedback_smiley($comment->service)}}"></i> <h5> Service </h5>
+                            </div>
+                            <div class="col-md-4 no-padding text-center">
+                                <i class="{{feedback_smiley($comment->ambiance)}}"></i> <h5> Ambience </h5>
+                            </div>
+                        </div>
+                        <p>{{$comment->comment}} </p>
+                    </div>
                     @endforeach
-                    </tbody>
-                </table>
+                </div>
 
             </div><!-- /container -->
         </div>
     </div>
+
 
 @endsection

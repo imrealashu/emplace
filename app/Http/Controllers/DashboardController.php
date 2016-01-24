@@ -84,16 +84,24 @@ class DashboardController extends Controller
     public function customers(){
         $client_data = Client::find(Auth::user()->id);
         $branch_data = $client_data->branch()->first();  //get the client branch information
-        $user = Branch::find($branch_data->id)->users()->get();
+        $user = Branch::find($branch_data->id)->users()->orderBy('id','desc')->get();
 
         $users = $this->transform_array(json_decode($user),['branch_id'=>$branch_data->id]);
 
-        return view('client.comments',compact('branch_data','users'));
+        return view('client.customers',compact('branch_data','users'));
+    }
+    public function comments(){
+        $client_data = Client::find(Auth::user()->id);
+        $branch_data = $client_data->branch()->first();  //get the client branch information
+        $comments = RestaurantFeedback::where('comment','!=','')->orderBy('id','desc')->take(6)->get();
+
+        return view('client.comments',compact('branch_data','comments'));
     }
 
-    public function transform_array(array $array){
+    protected function transform_array(array $array){
         return array_map([$this,'user_array_transform'],$array);
     }
+
     protected function user_array_transform($array){
         $total_visit = RestaurantFeedback::where(['user_id'=>$array->id,'branch_id'=>Auth::user()->branch_id])->count();
         $total_spent = RestaurantFeedback::select(DB::raw('SUM(bill_amount) as bill'))->where(['user_id'=>$array->id,'branch_id'=>Auth::user()->branch_id])->first();

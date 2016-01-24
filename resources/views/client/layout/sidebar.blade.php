@@ -6,7 +6,7 @@
         </div>
         <div class="icon-list">
             <a href="{{action('DashboardController@index')}}"><i class="flaticon-house266"></i><span>Dashboard</span></a>
-            <a href="#"><i class="flaticon-comments16"></i><span>Comments</span></a>
+            <a href="{{action('DashboardController@comments')}}"><i class="flaticon-comments16"></i><span>Comments</span></a>
             <a href="{{action('DashboardController@customers')}}"><i class="flaticon-business134"></i><span>Customers</span></a>
             <a href="promotion.html"><i class="flaticon-analytics2"></i><span>Promote</span></a>
             <a href="#"><i class="flaticon-money57"></i><span>Upgrade</span></a>
