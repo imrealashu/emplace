@@ -11,13 +11,13 @@
                     <div class="col-md-4 user-comment no-padding">
                         <div class="head-feedback">
                             <div class="col-md-4 no-padding text-center">
-                                <i class="{{feedback_smiley($comment->food)}}"></i> <h5> Food </h5>
+                                <i {!! feedback_smiley($comment->food) !!} ></i> <h5> Food </h5>
                             </div>
                             <div class="col-md-4 no-padding text-center">
-                                <i class="{{feedback_smiley($comment->service)}}"></i> <h5> Service </h5>
+                                <i {!! feedback_smiley($comment->service) !!}></i> <h5> Service </h5>
                             </div>
                             <div class="col-md-4 no-padding text-center">
-                                <i class="{{feedback_smiley($comment->ambiance)}}"></i> <h5> Ambience </h5>
+                                <i {!! feedback_smiley($comment->ambiance) !!}></i> <h5> Ambience </h5>
                             </div>
                         </div>
                         <p>{{$comment->comment}} </p>

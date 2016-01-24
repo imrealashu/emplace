@@ -27,16 +27,16 @@ function feedback_smiley($value)
 {
     switch ($value) {
         case $value == 100:
-            return 'flaticon-smiley10';
+            return 'class="flaticon-smiley10"style="color:yellow;"';
             break;
         case $value == 75:
-            return 'flaticon-smiley12';
+            return 'class="flaticon-smiley12"style="color:lightgreen"';
             break;
         case $value == 50:
-            return 'flaticon-emoticon11';
+            return 'class="flaticon-emoticon11"style="color:yellow"';
             break;
         default:
-            return 'flaticon-sad70';
+            return 'class="flaticon-sad70"style="color:red"';
             break;
     }
 }
