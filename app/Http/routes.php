@@ -50,5 +50,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/','HomeController@index');
     Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/dashboard/comments','DashboardController@customers');
     Route::post('/contact-us','HomeController@create');
 });

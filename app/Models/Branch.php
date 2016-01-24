@@ -13,4 +13,7 @@ class Branch extends Model
     public function feedback(){
         return $this->hasMany('\App\Models\RestaurantFeedback');
     }
+    public function users(){
+        return $this->hasManyThrough('\App\User','\App\Models\RestaurantFeedback','user_id','id');
+    }
 }

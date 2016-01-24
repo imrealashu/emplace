@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Http\Controllers\API\FeedbackController;
 use App\Http\Requests;
 use App\Models\Branch;
 use App\Models\Company;
 use App\Models\RestaurantFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -77,5 +79,30 @@ class DashboardController extends Controller
             'bad_ambiance',
             'average_rating'
         ));
+    }
+
+    public function customers(){
+        $client_data = Client::find(Auth::user()->id);
+        $branch_data = $client_data->branch()->first();  //get the client branch information
+        $user = Branch::find($branch_data->id)->users()->get();
+
+        $users = $this->transform_array(json_decode($user),['branch_id'=>$branch_data->id]);
+
+        return view('client.comments',compact('branch_data','users'));
+    }
+
+    public function transform_array(array $array){
+        return array_map([$this,'user_array_transform'],$array);
+    }
+    protected function user_array_transform($array){
+        $total_visit = RestaurantFeedback::where(['user_id'=>$array->id,'branch_id'=>Auth::user()->branch_id])->count();
+        $total_spent = RestaurantFeedback::select(DB::raw('SUM(bill_amount) as bill'))->where(['user_id'=>$array->id,'branch_id'=>Auth::user()->branch_id])->first();
+        return [
+            'name' => $array->name,
+            'email' => $array->email,
+            'phone' => $array->phone,
+            'total_visit' => $total_visit,
+            'total_spent' => $total_spent->bill
+        ];
     }
 }
